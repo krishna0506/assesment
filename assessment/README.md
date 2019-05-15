@@ -40,8 +40,8 @@ In the result you will able to see the table as. following
 ```$xslt
 Requests.....
 > Global                                                   (OK=3      KO=0     )
-> Get Cities for supported country                (OK=2      KO=0     )
-> Get Cities with unsupported country                    (OK=2      KO=0     )
+> Get Cities for supported country                (OK=1      KO=0     )
+> Get Cities with unsupported country                    (OK=1      KO=0     )
 > Get Catogories                                           (OK=1      KO=0     )
 ```
  
