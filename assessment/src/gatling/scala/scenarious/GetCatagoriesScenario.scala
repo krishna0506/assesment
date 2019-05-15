@@ -21,7 +21,17 @@ object GetCatogoriesScenario {
     })
   }
   
-  def getCities(): ScenarioBuilder = {
+  def getCitiesUnsupported(): ScenarioBuilder = {
+
+    return scenario("Get catogories")  
+          .exec(GetCatogories.GetCitiesUnsupportedAction(endpoint))
+          .exec( session => {
+     println( "GET_CITIES:" )
+     println( session( "Get_cities_response" ).as[String] )
+     session
+    })
+  }
+   def getCitiesSupported(): ScenarioBuilder = {
 
     return scenario("Get catogories")  
           .exec(GetCatogories.GetCitiesAction(endpoint))
