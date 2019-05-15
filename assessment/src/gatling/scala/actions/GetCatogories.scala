@@ -25,7 +25,7 @@ object GetCatogories {
          
   }
   def GetCitiesAction(endpoint: String): ActionBuilder = {
-    return http("Get Cities with unsupported country")
+    return http("Get Cities for supported country")
         .get("https://developers.zomato.com/api/v2.1/cities?q=NewYorkCity")
         .headers(Headers.commonHeader)
         .check(status.is(200))
@@ -55,7 +55,7 @@ object GetCatogories {
         //similarly we can assert remaining loops here.
   }
   def GetUnsupportedCitiesAction(endpoint: String): ActionBuilder = {
-    return http("Get Cities with unsupported country")
+    return http("Get Cities for unsupported country")
         .get("https://developers.zomato.com/api/v2.1/cities")
         .headers(Headers.commonHeader)
         .header("q", "Ireland")       
@@ -67,24 +67,4 @@ object GetCatogories {
         .check(regex("\"has_total\":0"))  
  
   }
-  
-  def GetEmptyCitiesAction(endpoint: String): ActionBuilder = {
-    return http("Get Cities with unsupported country")
-        .get("https://developers.zomato.com/api/v2.1/cities")
-        .headers(Headers.commonHeader)
-        .header("q", "Ireland")       
-        .check(status.is(200))
-        .check(jsonPath("$").saveAs("Get_cities_response"))
-        .check(jsonPath("$.location_suggestions[*]").count.is(0))
-        .check(jsonPath("$.status").is("success"))
-        .check(regex("\"has_more\":0"))
-        .check(regex("\"has_total\":0"))  
- 
-  }
-  
-  
-
- 
-  
-  
 }
