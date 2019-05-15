@@ -14,6 +14,7 @@ class GetCatogoriesSimulation extends Simulation {
 
 
   setUp(GetCatogoriesScenario.getCatagories.inject(nothingFor(10 seconds), atOnceUsers(1)), //this will run get categories case
-      GetCatogoriesScenario.getCities.inject(nothingFor(10 seconds), atOnceUsers(1))) //this will run get cities use cases.
+      GetCatogoriesScenario.getCitiesUnsupported.inject(nothingFor(10 seconds), atOnceUsers(1)),
+       GetCatogoriesScenario.getCitiesSupported.inject(nothingFor(10 seconds), atOnceUsers(1))) //this will run get cities use cases.
     .assertions(global.successfulRequests.percent.is(100))
 }
